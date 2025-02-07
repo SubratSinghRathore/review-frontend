@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg') no-repeat center center/cover;
+}
+
+.admin-panel {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+.user-panel {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    display: none;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+.createReview {
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    background-color: #96acb8;
+    padding: 40px;
+    border-radius: 14px;
+}
+
+.giveReview {
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    background-color: #96acb8;
+    padding: 40px;
+    border-radius: 14px;
+}
+
+#title {
+    font-size: 18px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    line-height: 2px;
+    border-radius: 14px;
+    border: 0px;
+    background-color: #e7e6e6;
+}
+
+.review_id {
+    font-size: 18px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    line-height: 2px;
+    border-radius: 14px;
+    border: 0px;
+    background-color: #e7e6e6;
+}
+
+.hide {
+    display: none;
+}
+
+.btn {
+    background-color: #007bff; /* Blue color */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.btn:active {
+    background-color: #00408a; /* Even darker when clicked */
+}
+
+.admin_svg ::after{
+    background-color: #00408a;
+}
+
+.switchUser{
+    color: #000000;
+    background-color: white;
+    width: max-content;
+    padding: 3px;
+    border-radius: 3px;
+}
+

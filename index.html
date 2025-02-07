@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="admin-panel" id="admin-panel">
+        <div class="admin_svg svg_hover" id="admin_svg">
+            <!-- <div class="switchUser">
+                switch to user
+            </div> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+                fill="none">
+                <path
+                    d="M7.18007 15.2964C5.92249 16.0335 2.62521 17.5386 4.63348 19.422C5.6145 20.342 6.7071 21 8.08077 21H15.9192C17.2929 21 18.3855 20.342 19.3665 19.422C21.3748 17.5386 18.0775 16.0335 16.8199 15.2964C13.8709 13.5679 10.1291 13.5679 7.18007 15.2964Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                    stroke="currentColor" stroke-width="2" />
+                <path
+                    d="M21.6555 8.5L22.4031 7.79549C22.801 7.4205 23 7.233 23 7C23 6.76701 22.801 6.5795 22.4031 6.2045L21.6555 5.5M22.9794 7L19 7"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M2.34452 8.5L1.59691 7.79549C1.19897 7.4205 1 7.233 1 7C1 6.76701 1.19897 6.5795 1.59691 6.2045L2.34452 5.5M1.02059 7L5 7"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <h2>Admin Panel</h2>
+        <button class="btn" onclick="createRoom()">Create Room</button>
+        <button class="btn" onclick="createReviewPannel()">Create Review</button>
+    </div>
+
+    <div class="user-panel hide_svg" id="user-panel">
+        <div class="user_svg svg_hover" id="user_svg">
+            <!-- <div class="switchUser">
+                switch to admin
+            </div> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+                fill="none">
+                <path
+                    d="M7.18007 15.2964C5.92249 16.0335 2.62521 17.5386 4.63348 19.422C5.6145 20.342 6.7071 21 8.08077 21H15.9192C17.2929 21 18.3855 20.342 19.3665 19.422C21.3748 17.5386 18.0775 16.0335 16.8199 15.2964C13.8709 13.5679 10.1291 13.5679 7.18007 15.2964Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                    stroke="currentColor" stroke-width="2" />
+                <path
+                    d="M21.6555 8.5L22.4031 7.79549C22.801 7.4205 23 7.233 23 7C23 6.76701 22.801 6.5795 22.4031 6.2045L21.6555 5.5M22.9794 7L19 7"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                    d="M2.34452 8.5L1.59691 7.79549C1.19897 7.4205 1 7.233 1 7C1 6.76701 1.19897 6.5795 1.59691 6.2045L2.34452 5.5M1.02059 7L5 7"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <h2>user Panel</h2>
+        <button class="btn" onclick="joinRoom()">Join Room</button>
+        <button class="btn" onclick="giveReviewPannel()">Give Review</button>
+    </div>
+
+    <div class="createReview hide" id="createReview">
+        <div onclick="hide('createReview')" style="padding: 10px;" id="cros">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"
+                fill="none">
+                <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+
+        <input type="text" name="title" placeholder="enter title of review" id="title" size="80px" required>
+        <button class="btn" type="submit" onclick="createReview()">Create</button>
+    </div>
+
+    <div class="giveReview hide" id="giveReview">
+        <div onclick="hide('giveReview')" style="padding: 10px;" id="cros">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"
+                fill="none">
+                <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+
+        <input class="review_id" type="text" name="reviewId" placeholder="Please enter review ID to verify" id="reviewId" size="80px" required>
+        <button class="btn" type="submit" onclick="giveReview()">Verify</button>
+    </div>
+
+    <script>
+        function createRoom(a) {
+            alert("Create Room clicked!");
+        }
+
+        function createReviewPannel() {
+            document.getElementById("createReview").classList.remove("hide");
+        }
+
+        function giveReviewPannel() {
+            document.getElementById("giveReview").classList.remove("hide");
+        }
+
+        function hide(val) {
+            document.getElementById(val).classList.add("hide");
+        }
+
+        async function createReview() {
+            const title = document.getElementById("title").value;
+            const crf = await fetch(`https://review-dyeb.onrender.com/review/admin/new-review?title=${title}`, {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                //body: JSON.stringify({ title: title })
+            })
+                .then(res => {
+                    return res.json();
+
+                })
+                .then(res => {
+
+                    const a = async function a() {
+                        const myurl = "https://facebook.com"
+                        const url = await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}`)
+                        document.getElementById("createReview").innerHTML = `<div onclick="hide('createReview')" style="padding: 10px;" id="cros"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"fill="none"><path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div> <br> <h3 style="max-width: 300px; word-wrap: break-word;">Review created for title: ${res.reviewTitle} </h3><br> Review Id: ${res.reviewId} <br> <img style="padding:25px" src=https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}></img><br><a href="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}" style="text-decoration: none" download="review image.jpg"><button class="btn" >Download</button></a><button class="btn" onclick="reloadPage()">Reload</button>`
+
+                    }
+                    a();
+                })
+                .then(res => {
+
+                })
+
+        }
+        function reloadPage() {
+            location.reload(); // Reloads the current page
+        }
+
+        document.getElementById("admin_svg").addEventListener("click", () => {
+            document.getElementById("admin-panel").style.display = "none";
+            document.getElementById("user-panel").style.display = "block";
+        });
+
+        document.getElementById("user_svg").addEventListener("click", () => {
+            document.getElementById("user-panel").style.display = "none";
+            document.getElementById("admin-panel").style.display = "block";
+        });
+
+        async function giveReview() {
+            const id = document.getElementById("reviewId").value;
+            const a = await fetch(`https://review-dyeb.onrender.com/review/user?reviewId=${id}`, {
+                method: "PATCH",
+                headers: { 'Content-Type': 'application/json' },
+            })
+                .then(res => {
+                    if(res.ok) {
+                        document.getElementById("giveReview").innerHTML = `<h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"fill="none"><path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg><br>Review submitted successfully.</h3>`
+                    } else {
+                        document.getElementById("giveReview").innerHTML = `<h3>Please enter a valid riview ID<br><button class="btn" onclick="reloadPage()">Reload</button></h3>`
+                    }
+                })
+        }
+    </script>
+</body>
+
+</html>
