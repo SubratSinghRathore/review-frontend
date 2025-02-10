@@ -65,6 +65,15 @@ h2 {
     border-radius: 14px;
 }
 
+.viewReview {
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    background-color: #96acb8;
+    padding: 40px;
+    border-radius: 14px;
+}
+
 #title {
     font-size: 18px;
     padding: 20px;
@@ -76,6 +85,16 @@ h2 {
 }
 
 .review_id {
+    font-size: 18px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    line-height: 2px;
+    border-radius: 14px;
+    border: 0px;
+    background-color: #e7e6e6;
+}
+
+.review_content {
     font-size: 18px;
     padding: 20px;
     color: rgb(0, 0, 0);
