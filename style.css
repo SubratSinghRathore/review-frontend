@@ -139,3 +139,8 @@ h2 {
     border-radius: 3px;
 }
 
+.loader{
+    position: absolute;
+    z-index: 100;
+    display: none;
+}

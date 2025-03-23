@@ -7,6 +7,7 @@ function viewReviewPannel() {
 }
 
 async function viewReview() {
+    document.getElementsByClassName("loader")[0].style.display = "block"
     const id = document.getElementById("viewReviewId").value;
     await fetch(`https://review-dyeb.onrender.com/review/admin/view?reviewId=${id}`, {
         method: "GET",
@@ -16,12 +17,13 @@ async function viewReview() {
             return res.json();
         })
         .then(res => {
+            document.getElementsByClassName("loader")[0].style.display = "none"
             const array = res;
             var a = "All reviews are:-<br>";
             array.forEach(element => {
-                a = a+`${element}<br>`
+                a = a + `${element}<br>`
             });
-            document.getElementById("viewReview").innerHTML=`<div onclick="hide('viewReview')" id="cros"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"fill="none"><path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div><br>${a}`;
+            document.getElementById("viewReview").innerHTML = `<div onclick="hide('viewReview')" id="cros"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"fill="none"><path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div><br>${a}`;
         })
 }
 
@@ -38,6 +40,7 @@ function hide(val) {
 }
 
 async function createReview() {
+    document.getElementsByClassName("loader")[0].style.display = "block"
     const title = document.getElementById("title").value;
     const crf = await fetch(`https://review-dyeb.onrender.com/review/admin/new-review?title=${title}`, {
         method: "POST",
@@ -49,7 +52,7 @@ async function createReview() {
 
         })
         .then(res => {
-
+            document.getElementsByClassName("loader")[0].style.display = "none"
             const a = async function a() {
                 const myurl = `https://review-dyeb.onrender.com/review/user/giveReview?reviewId=${res.reviewId}`;
                 const url = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}`;
@@ -79,12 +82,14 @@ document.getElementById("user_svg").addEventListener("click", () => {
 
 
 function submitReview(id) {
+    document.getElementsByClassName("loader")[0].style.display = "block"
     const reviewContent = document.getElementById("reviewContent").value;
     fetch(`https://review-dyeb.onrender.com/review/user/update?reviewId=${id}&reviewContent=${reviewContent}`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
     })
         .then(res => {
+            document.getElementsByClassName("loader")[0].style.display = "none"
             if (res.ok) {
                 alert("review submitted successfully");
             };
@@ -94,7 +99,7 @@ function submitReview(id) {
 
 async function giveReview() {
     const id = document.getElementById("reviewId").value;
-
+    document.getElementsByClassName("loader")[0].style.display = "block"
     await fetch(`https://review-dyeb.onrender.com/review/user?reviewId=${id}`, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
@@ -103,6 +108,7 @@ async function giveReview() {
             return res.json();
         })
         .then(res => {
+            document.getElementsByClassName("loader")[0].style.display="none"
             if (!res.title) {
                 alert("Please enter valid review ID");
             } else {
