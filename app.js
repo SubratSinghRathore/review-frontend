@@ -51,9 +51,9 @@ async function createReview() {
         .then(res => {
 
             const a = async function a() {
-                const myurl = "https://facebook.com"
-                const url = await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}`)
-                document.getElementById("createReview").innerHTML = `<div onclick="hide('createReview')" style="padding: 10px;" id="cros"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"fill="none"><path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div> <br> <h3 style="max-width: 300px; word-wrap: break-word;">Review created for title: ${res.reviewTitle} </h3><br> Review Id: ${res.reviewId} <br> <img style="padding:25px" src=https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}></img><br><a href="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}" style="text-decoration: none" download="review image.jpg"><button class="btn" >Download</button></a><button class="btn" onclick="reloadPage()">Reload</button>`
+                const myurl = `https://review-dyeb.onrender.com/review/user/giveReview?reviewId=${res.reviewId}`;
+                const url = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${myurl}`;
+                document.getElementById("createReview").innerHTML = `<div onclick="hide('createReview')" style="padding: 10px;" id="cros"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"fill="none"><path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div> <br> <h3 style="max-width: 300px; word-wrap: break-word;">Review created for title: ${res.reviewTitle} </h3><br> Review Id: ${res.reviewId} <br> <img style="padding:25px" src=${url}></img><br><a href="${url}" style="text-decoration: none" download="review image.jpg"><button class="btn" >Download</button></a><button class="btn" onclick="reloadPage()">Reload</button>`
 
             }
             a();
@@ -81,7 +81,7 @@ document.getElementById("user_svg").addEventListener("click", () => {
 function submitReview(id) {
     const reviewContent = document.getElementById("reviewContent").value;
     fetch(`https://review-dyeb.onrender.com/review/user/update?reviewId=${id}&reviewContent=${reviewContent}`, {
-        method: "PATCH",
+        method: "POST",
         headers: { 'Content-Type': 'application/json' },
     })
         .then(res => {
@@ -108,9 +108,6 @@ async function giveReview() {
             } else {
                 document.getElementById("giveReview").innerHTML = `<div onclick="hide('giveReview')" style="padding: 10px;" id="cros"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#4d4d4d"fill="none"><path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke="currentColor"stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div><br><h3>Title: ${res.title}</h3><br><input class="review_content" type="text" name="reviewContent" placeholder="Please enter Your review" id="reviewContent" size="80px" required>
                 <button class="btn" type="submit" onclick="submitReview(${id})">submit</button><button class="btn" onclick="reloadPage()">Reload</button>`
-
-
-
             }
         })
 
