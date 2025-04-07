@@ -144,3 +144,63 @@ h2 {
     z-index: 100;
     display: none;
 }
+
+/*loader styling*/
+/* Fullscreen overlay */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.514); /* semi-white bg */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  /* Circle SVG scaled bigger */
+  .circular-loader {
+    animation: rotate 2s linear infinite;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .loader-path {
+    stroke: #4285f4;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+  
+  @keyframes color {
+    0%   { stroke: #4285f4; }
+    25%  { stroke: #34a853; }
+    50%  { stroke: #fbbc05; }
+    75%  { stroke: #ea4335; }
+    100% { stroke: #4285f4; }
+  }
+  
